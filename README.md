@@ -17,3 +17,10 @@ docker run -p 25:25 -p 587:587 -p 143:143 \
     -e SOURCE_EMAIL_PASSWORD=<source-email-password> \
     -t parking-check bash -c "check-parking '<plate number>'"
 ```
+
+The following env variables are set in the Travis job config:
+
+- `$TARGET_EMAIL` - destination email address
+- `$SOURCE_EMAIL` - source email address
+- `$SOURCE_EMAIL_PASSWORD` - source email SMTP password
+- `$PLATE_NUMBER` - plate number
