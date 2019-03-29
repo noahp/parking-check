@@ -20,7 +20,7 @@ if check_plate "$1" ; then
     echo -e "\x1b[32m\x1b[1mAll good!\x1b[0m"
 else
     echo -e "\x1b[31m\x1b[1mSending alert email...\x1b[0m"
-    sendmail -s "Check parking!" \
+    sendmail.py -s "Check parking!" \
         -b "https://vats.municipalcitationsolutions.com/payments/PayVats.aspx\?location\=47" \
         -d $TARGET_EMAIL -a $SOURCE_EMAIL -p $SOURCE_EMAIL_PASSWORD
     echo -e "\x1b[1mEmail sent.\x1b[0m"
