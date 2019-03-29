@@ -1,15 +1,7 @@
-sudo: required
-
-language: generic
-
-services:
-  - docker
-
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
 script:
-  - cd $TRAVIS_BUILD_DIR && docker build -t check-parking .
-
-  - docker run -p 25:25 -p 587:587 -p 143:143 \
-      -e TARGET_EMAIL=$TARGET_EMAIL \
-      -e SOURCE_EMAIL=$SOURCE_EMAIL  \
-      -e SOURCE_EMAIL_PASSWORD=$SOURCE_EMAIL_PASSWORD \
-      -t parking-check bash -c "check-parking '$PLATE_NUMBER'"
+  - check-parking '$PLATE_NUMBER'
